@@ -13,11 +13,16 @@ encoded_pass = base64.b64encode(sample_encoded_pass)
 
 wsdl_url = 'https://services.allautoparts.ru/WEBService2/SearchService.svc/wsdl?wsdl'
 service_url = 'https://services.allautoparts.ru/WEBService2/SearchService.svc'
+wsdl_ip = 'https://services.allautoparts.ru/WEBService2/SupportService.svc/wsdl?wsdl'
+service_ip = 'https://services.allautoparts.ru/WebService2/SupportService.svc'
+
 
 client = Client(wsdl_url, location=service_url)
+client_ip = Client(wsdl_ip, location=service_ip)
 
 
 response = client.service.SearchOfferStep1('SessionInfo ParentID="39118" UserLogin={encoded_login} UserPass={encoded_pass}')
-
+response_ip = client_ip.service.GetRequestIP()
 
 print(response)
+print(response_ip)
