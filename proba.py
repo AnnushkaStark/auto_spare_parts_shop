@@ -21,7 +21,8 @@ client = Client(wsdl_url, location=service_url)
 client_ip = Client(wsdl_ip, location=service_ip)
 
 
-response = client.service.SearchOfferStep1('SessionInfo ParentID="39118" UserLogin={encoded_login} UserPass={encoded_pass}')
+
+response = client.service.SearchOfferStep1('''<root> <SessionInfo ParentID="4821" UserLogin="encoded_login" UserPass="encoded_pass" /> <Search> <Key>SP-1004</Key> </Search> </root>''')
 response_ip = client_ip.service.GetRequestIP()
 
 print(response)
