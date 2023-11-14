@@ -22,7 +22,12 @@ client_ip = Client(wsdl_ip, location=service_ip)
 print(encoded_login)
 print(encoded_pass)
 
+<<<<<<< HEAD
 response = client.service.SearchOfferStep1(f'''<root> <SessionInfo ParentID="39118" UserLogin="{encoded_login}" UserPass="{encoded_pass}" /> <Search> <Key>SP-1004</Key> </Search> </root>''')
+=======
+
+response = client.service.SearchOfferStep1('''<root> <SessionInfo ParentID="4821" UserLogin="encoded_login" UserPass="encoded_pass" /> <Search> <Key>SP-1004</Key> </Search> </root>''')
+>>>>>>> 2acf5b74c97c479e0c098ff903d3d366e9c30a0c
 response_ip = client_ip.service.GetRequestIP()
 
 
